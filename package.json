@@ -1,0 +1,22 @@
+{
+  "name": "bulletbox",
+  "version": "1.0.0",
+  "description": "Turn your Novation Launchpad Mini into a chess controller",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && node build.js",
+    "watch": "tsc && node build.js --watch",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
+    "chrome-types": "^0.1.346",
+    "esbuild": "^0.25.2",
+    "eslint": "^9.23.0",
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,83 @@
+import { Promotion, Square } from './types';
+
+const noteToSquareMap = new Map<number, Square>([
+    [36, Square.fromName('a1')],
+    [37, Square.fromName('b1')],
+    [38, Square.fromName('c1')],
+    [39, Square.fromName('d1')],
+    [68, Square.fromName('e1')],
+    [69, Square.fromName('f1')],
+    [70, Square.fromName('g1')],
+    [71, Square.fromName('h1')],
+    [40, Square.fromName('a2')],
+    [41, Square.fromName('b2')],
+    [42, Square.fromName('c2')],
+    [43, Square.fromName('d2')],
+    [72, Square.fromName('e2')],
+    [73, Square.fromName('f2')],
+    [74, Square.fromName('g2')],
+    [75, Square.fromName('h2')],
+    [44, Square.fromName('a3')],
+    [45, Square.fromName('b3')],
+    [46, Square.fromName('c3')],
+    [47, Square.fromName('d3')],
+    [76, Square.fromName('e3')],
+    [77, Square.fromName('f3')],
+    [78, Square.fromName('g3')],
+    [79, Square.fromName('h3')],
+    [48, Square.fromName('a4')],
+    [49, Square.fromName('b4')],
+    [50, Square.fromName('c4')],
+    [51, Square.fromName('d4')],
+    [80, Square.fromName('e4')],
+    [81, Square.fromName('f4')],
+    [82, Square.fromName('g4')],
+    [83, Square.fromName('h4')],
+    [52, Square.fromName('a5')],
+    [53, Square.fromName('b5')],
+    [54, Square.fromName('c5')],
+    [55, Square.fromName('d5')],
+    [84, Square.fromName('e5')],
+    [85, Square.fromName('f5')],
+    [86, Square.fromName('g5')],
+    [87, Square.fromName('h5')],
+    [56, Square.fromName('a6')],
+    [57, Square.fromName('b6')],
+    [58, Square.fromName('c6')],
+    [59, Square.fromName('d6')],
+    [88, Square.fromName('e6')],
+    [89, Square.fromName('f6')],
+    [90, Square.fromName('g6')],
+    [91, Square.fromName('h6')],
+    [60, Square.fromName('a7')],
+    [61, Square.fromName('b7')],
+    [62, Square.fromName('c7')],
+    [63, Square.fromName('d7')],
+    [92, Square.fromName('e7')],
+    [93, Square.fromName('f7')],
+    [94, Square.fromName('g7')],
+    [95, Square.fromName('h7')],
+    [64, Square.fromName('a8')],
+    [65, Square.fromName('b8')],
+    [66, Square.fromName('c8')],
+    [67, Square.fromName('d8')],
+    [96, Square.fromName('e8')],
+    [97, Square.fromName('f8')],
+    [98, Square.fromName('g8')],
+    [99, Square.fromName('h8')],
+]);
+
+export function noteToSquare(note: number): Square | null {
+    return noteToSquareMap.get(note) ?? null;
+}
+
+const noteToPromotionMap = new Map<number, Promotion>([
+    [91, Promotion.Queen],
+    [92, Promotion.Knight],
+    [93, Promotion.Rook],
+    [94, Promotion.Bishop],
+]);
+
+export function noteToPromotion(note: number): Promotion | null {
+    return noteToPromotionMap.get(note) ?? null;
+}

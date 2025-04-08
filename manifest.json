@@ -4,6 +4,12 @@
   "version": "0.1",
   "description": "Turn your Novation Launchpad Mini into a chess controller",
   "permissions": ["activeTab"],
+  "icons": {
+    "16": "icon-16px.png",
+    "32": "icon-32px.png",
+    "48": "icon-48px.png",
+    "128": "icon-128px.png"
+  },
   "content_scripts": [
     {
       "matches": ["*://*.chess.com/*"],

@@ -2,6 +2,22 @@ import { Board } from './types';
 import { noteToPromotion, noteToSquare } from './mappings';
 
 let board: Board;
+let wakeLock: WakeLockSentinel;
+
+function acquireWakeLock() {
+    navigator.wakeLock.request('screen').then(
+        (lock) => {
+            wakeLock = lock;
+        }
+    );
+
+    document.addEventListener("visibilitychange", async () => {
+        if (document.visibilityState === "visible" && wakeLock?.released) {
+            wakeLock = await navigator.wakeLock.request("screen");
+        }
+    });
+}
+
 function setupBoard(access: MIDIAccess, boardElement: Element) {
     const hoverSquare = boardElement.querySelector('.hover-square');
     if (!hoverSquare) return;
@@ -10,6 +26,8 @@ function setupBoard(access: MIDIAccess, boardElement: Element) {
     if (!bound) return;
 
     board = new Board(boardElement, bound);
+
+    acquireWakeLock();
 
     access.inputs.forEach(input => {
         input.onmidimessage = (message) => {
